@@ -11,7 +11,7 @@ import RequestDetail from './pages/RequestDetail'
 import Dashboard from './pages/Dashboard'
 import NearbyDonors from './pages/NearbyDonors'
 import NearbyHospitals from './pages/NearbyHospitals'
-import Chat from './pages/Chat'
+import Chat from './pages/chat'
 import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
