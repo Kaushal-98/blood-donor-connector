@@ -48,7 +48,31 @@ A real-time blood donation platform connecting emergency blood requesters with n
 
 ## Screenshots
 
-[Add screenshots here]
+
+### 🏠 Home Page
+
+![Home Page](./screenshots/home.png)
+
+### 🔐 Login Page
+
+![Login Page](./screenshots/login.png)
+
+### 🩸 Blood Request Page
+
+![Blood Request Page](./screenshots/request-page.png)
+
+### 🩸 Donor Dashboard
+
+![Donor Dashboard](./screenshots/donor-dashboard.png)
+
+### 💬 Real-Time Chat
+
+![Real-Time Chat](./screenshots/chat.png)
+
+### 👨🏻‍⚕️ Health Tips
+
+![Health Tips](./screenshots/Healthtips.png)
+
 
 ## License
 
