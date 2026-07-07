@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(31, 41, 55, 0.1);
+  }
+
+  .btn-pop {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-pop:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  .btn-pop:active {
+    transform: scale(0.97);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(255, 71, 87, 0.25), 0 0 24px rgba(255, 71, 87, 0.08);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .corner-frame {
+    position: relative;
+  }
+  .corner-frame::before,
+  .corner-frame::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+  }
+  .corner-frame::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid rgba(255, 71, 87, 0.6);
+    border-left: 2px solid rgba(255, 71, 87, 0.6);
+  }
+  .corner-frame::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid rgba(255, 71, 87, 0.6);
+    border-right: 2px solid rgba(255, 71, 87, 0.6);
+  }
+
+  .id-badge {
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
+  .scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 71, 87, 0.6), transparent);
+    animation: scan 3s linear infinite;
+  }
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Leaflet map fixes — restores tile sizing that Tailwind's base reset overrides */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+.leaflet-container img.leaflet-tile,
+.leaflet-container img.leaflet-image-layer {
+  max-width: none !important;
+  max-height: none !important;
+  width: auto !important;
+}
