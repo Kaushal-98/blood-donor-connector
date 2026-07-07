@@ -42,9 +42,9 @@ A real-time blood donation platform connecting emergency blood requesters with n
    npm run dev
 ```
 
-## Live Demo
+## 🌐 Live Demo
 
-[Add your deployed link here]
+🔗 [View Live Demo](https://blood-donor-connector.vercel.app)
 
 ## Screenshots
 
