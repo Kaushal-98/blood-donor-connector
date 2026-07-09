@@ -165,16 +165,18 @@ function RequestDetail() {
                   <p className="font-medium text-sm">{r.profiles?.full_name || 'Donor'}</p>
                   <p className="text-subtext text-xs">{r.profiles?.blood_group}</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Link to={`/chat/${r.id}`} className="text-coral text-sm font-medium hover:underline">
-                    💬 Chat
-                  </Link>
-                  {isOwner && (
-                    <a href={`tel:${r.profiles?.phone}`} className="text-mint text-sm font-medium hover:underline">
-                      Call
-                    </a>
-                  )}
-                </div>
+                  <div className="flex items-center gap-3">
+                 {(isOwner || r.donor_id === currentUser?.id) && (
+                  <Link to={`/chat/${r.id}`} className="text-teal text-sm font-medium hover:underline">
+                   💬 Chat
+                    </Link>
+                       )}
+                   {isOwner && (
+                     <a href={`tel:${r.profiles?.phone}`} className="text-teal text-sm font-medium hover:underline">
+                       Call
+                         </a>
+                         )}
+                   </div>
               </div>
             ))}
           </div>

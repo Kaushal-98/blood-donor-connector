@@ -20,15 +20,23 @@ function Chat() {
     setCurrentUser(user)
 
     const { data: response } = await supabase
-      .from('request_responses')
-      .select('*, requests(requester_id, hospital_name, profiles:requester_id(full_name)), donor:donor_id(full_name)')
-      .eq('id', responseId)
-      .single()
+  .from('request_responses')
+  .select('*, requests(requester_id, hospital_name)')
+  .eq('id', responseId)
+  .single()
 
-    if (response) {
-      const isDonor = response.donor_id === user.id
-      setOtherPerson(isDonor ? response.requests?.profiles?.full_name : response.donor?.full_name)
-    }
+if (response) {
+  const isDonor = response.donor_id === user.id
+  const otherPersonId = isDonor ? response.requests?.requester_id : response.donor_id
+
+  const { data: otherProfile } = await supabase
+    .from('profiles')
+    .select('full_name')
+    .eq('id', otherPersonId)
+    .single()
+
+  setOtherPerson(otherProfile?.full_name || 'User')
+}
 
     const { data: msgs } = await supabase
       .from('messages')
